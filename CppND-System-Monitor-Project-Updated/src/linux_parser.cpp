@@ -75,7 +75,7 @@ float LinuxParser::MemoryUtilization() { return 0.0; }
 long LinuxParser::UpTime() 
 { return 0; }
 
-// TODO: Read and return the number of jiffies for the system
+// TODO: Read and return the number of jiffies for the system   // jiffy - unit of time in <linux/jiffies.h>
 long LinuxParser::Jiffies() { return 0; }
 
 // TODO: Read and return the number of active jiffies for a PID
