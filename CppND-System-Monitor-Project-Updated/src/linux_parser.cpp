@@ -73,7 +73,18 @@ float LinuxParser::MemoryUtilization() { return 0.0; }
 
 // TODO: Read and return the system uptime
 long LinuxParser::UpTime() 
-{ return 0; }
+{
+  string time;  // BOTH LARGE VALUES
+  string line;
+  ifstream stream(kProcDirectory + kUptimeFilename);  // input file stream from path for operating system kernel version          operating system kernel version - "proc directory + version file name"
+  if (stream.is_open())
+  {
+    getline(stream, line);   // gets line from stream & stores it in "string line"
+    istringstream linestream(line);    // creates string stream from "line"
+    linestream >> time;  // allows to pull tokens off stream     first token - time    78322.97 1119670.94 <---(in Cmake)
+  }
+  return time;  // if opening string or something else fails, return "time" as Blank String Default
+}
 
 // TODO: Read and return the number of jiffies for the system   // jiffy - unit of time in <linux/jiffies.h>
 long LinuxParser::Jiffies() { return 0; }
