@@ -43,7 +43,7 @@ string LinuxParser::Kernel() {
   if (stream.is_open()) {
     std::getline(stream, line);   // gets line from stream & stores it in "string line"
     std::istringstream linestream(line);    // creates string stream from "line"
-    linestream >> os >> version >> kernel;  // allows to pull tokens off stream     first token - os (operating system name --> Linux)     second token - version     third token - kernel
+    linestream >> os >> version >> kernel;  // allows to pull tokens off stream     first token - os (operating system name --> Linux)     second token - version     third token - kernel    Linux version 5.15.154+ <---(in Cmake)
   }
   return kernel;  // if opening string or something else fails, return "kernel" as Blank String Default
 }
