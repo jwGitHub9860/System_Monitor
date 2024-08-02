@@ -11,7 +11,7 @@ using namespace std;
 // INPUT: Long int measuring seconds
 // OUTPUT: HH:MM:SS
 // REMOVE: [[maybe_unused]] once you define the function
-string Format::ElapsedTime(long seconds[[maybe_unused]])    // calculates Uptime into { Hr:Min:Sec }
+string Format::ElapsedTime(long seconds)    // calculates Uptime into { Hr:Min:Sec }
 {
     vector<int> temp_times{};    // holds sec AFTER calculation     { hr, min, sec }
     vector<int> denominators{ 3600, 60, 1 };    // { hr, min, sec }
