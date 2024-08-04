@@ -103,7 +103,28 @@ long LinuxParser::IdleJiffies() { return 0; }
 vector<string> LinuxParser::CpuUtilization() { return {}; }
 
 // TODO: Read and return the total number of processes
-int LinuxParser::TotalProcesses() { return 0; }
+int LinuxParser::TotalProcesses()
+{
+  int total_processes;
+  string line;
+  string key;
+  ifstream stream(kProcDirectory + kStatFilename);  // input file stream from path for operating system kernel version          operating system kernel version - "proc directory + version file name"
+  if (stream.is_open())
+  {
+    while (getline(stream, line))   // gets line from stream & stores it in "string line"
+    {
+      istringstream linestream;  // input string stream
+      while (linestream >> key >> total_processes)   // gets line from stream & stores it in "string line"
+      {
+        if (key == "processes")   // checks if line contains total number of processes
+        {
+          return total_processes;
+        }
+      }
+    }
+  }
+  return total_processes;
+}
 
 // TODO: Read and return the number of running processes
 int LinuxParser::RunningProcesses()
