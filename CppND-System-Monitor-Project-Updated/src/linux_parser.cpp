@@ -106,7 +106,32 @@ vector<string> LinuxParser::CpuUtilization() { return {}; }
 int LinuxParser::TotalProcesses() { return 0; }
 
 // TODO: Read and return the number of running processes
-int LinuxParser::RunningProcesses() { return 0; }
+int LinuxParser::RunningProcesses()
+{
+  int num_of_run_process;
+  string line;
+  string key;
+  ifstream stream(kProcDirectory + kStatFilename)  // input file stream from path for operating system kernel version          operating system kernel version - "proc directory + version file name"
+  if (stream.is_open())
+  {
+    while (getline(stream, line))   // gets line from stream & stores it in "string line"
+    {
+      istringstream linestream(line);  // input string stream
+      while (linestream >> key >> num_of_run_process)   // allows to pull tokens off stream     first token - num_of_run_process    78322.97 1119670.94 <---(in Cmake)
+      {
+        if (key == "procs_running")   // checks if line contains number of processes running
+        {
+          return num_of_run_process;
+        }
+        
+      }
+      
+    }
+    
+  }
+  
+  return num_of_run_process;
+}
 
 // TODO: Read and return the command associated with a process
 // REMOVE: [[maybe_unused]] once you define the function
