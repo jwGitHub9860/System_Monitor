@@ -144,13 +144,9 @@ int LinuxParser::RunningProcesses()
         {
           return num_of_run_process;
         }
-        
       }
-      
     }
-    
   }
-  
   return num_of_run_process;
 }
 
