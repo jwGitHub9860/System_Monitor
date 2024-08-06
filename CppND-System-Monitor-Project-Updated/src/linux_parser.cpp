@@ -81,7 +81,7 @@ long LinuxParser::UpTime()
   {
     getline(stream, line);   // gets line from stream & stores it in "string line"
     istringstream linestream(line);    // creates string stream from "line"
-    linestream >> uptime;  // allows to pull tokens off stream     first token - time    78322.97 1119670.94 <---(in Cmake)
+    linestream >> uptime;  // allows to pull tokens off stream     first token - uptime    78322.97 1119670.94 <---(in Cmake)
   }
   return uptime;  // if opening string or something else fails, return "time" as Blank String Default
 }
@@ -130,13 +130,13 @@ int LinuxParser::TotalProcesses()
   int total_processes;
   string line;
   string key;
-  ifstream stream(kProcDirectory + kStatFilename);  // input file stream from path for operating system kernel version          operating system kernel version - "proc directory + version file name"
+  ifstream stream(kProcDirectory + kStatFilename);  // input file stream from path for operating system kernel version          operating system kernel version - "proc directory + stat file name"
   if (stream.is_open())
   {
     while (getline(stream, line))   // gets line from stream & stores it in "string line"
     {
       istringstream linestream;  // input string stream
-      while (linestream >> key >> total_processes)   // gets line from stream & stores it in "string line"
+      while (linestream >> key >> total_processes)   // gets line from stream & stores it in "string line"     first token - processes    second token - " # "    78322.97 1119670.94 <---(in Cmake)
       {
         if (key == "processes")   // checks if line contains total number of processes
         {
@@ -154,13 +154,13 @@ int LinuxParser::RunningProcesses()
   int num_of_run_process;
   string line;
   string key;
-  ifstream stream(kProcDirectory + kStatFilename)  // input file stream from path for operating system kernel version          operating system kernel version - "proc directory + version file name"
+  ifstream stream(kProcDirectory + kStatFilename)  // input file stream from path for operating system kernel version          operating system kernel version - "proc directory + stat file name"
   if (stream.is_open())
   {
     while (getline(stream, line))   // gets line from stream & stores it in "string line"
     {
       istringstream linestream(line);  // input string stream
-      while (linestream >> key >> num_of_run_process)   // allows to pull tokens off stream     first token - num_of_run_process    78322.97 1119670.94 <---(in Cmake)
+      while (linestream >> key >> num_of_run_process)   // allows to pull tokens off stream     first token - procs_running    second token - " # "    78322.97 1119670.94 <---(in Cmake)
       {
         if (key == "procs_running")   // checks if line contains number of processes running
         {
