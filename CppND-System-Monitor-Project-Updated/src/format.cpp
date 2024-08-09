@@ -30,5 +30,5 @@ string Format::ElapsedTime(long seconds)    // calculates Uptime into { Hr:Min:S
         }
     }
     
-    return to_string(temp_times[0]) + ":" + to_string(temp_times[1]) + ":" + to_string(temp_times[2]);      // used '+' because '<<' gives error & only used for 'cout'      converts 'int' to 'string'      { hr, min, sec }
+    return to_string(temp_times[0]) + ":" + to_string(temp_times[1]) + ":" + to_string(temp_times[2]);      // outputs HH:MM:SS      used '+' because '<<' gives error & only used for 'cout'      converts 'int' to 'string'
 }
