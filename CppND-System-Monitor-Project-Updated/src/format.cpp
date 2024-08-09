@@ -20,11 +20,14 @@ string Format::ElapsedTime(long seconds)    // calculates Uptime into { Hr:Min:S
 
     long sec = seconds;     // copy of original system uptime (WILL BE CHANGED TO FIND REAL UPTIME)
 
-    for (int i = 0; i < 3; i++)
+    while (sec > 0)
     {
-        temp_times[i] = int(floor(sec/temp_times[i]));   // floor() Rounds DOWN to int
+        for (int i = 0; i < 3; i++)
+        {
+            temp_times[i] = int(floor(sec/temp_times[i]));   // floor() Rounds DOWN to int
 
-        sec -= temp_times[i] * denominators[i];     // subtracts new sec result from original sec
+            sec -= temp_times[i] * denominators[i];     // subtracts new sec result from original sec
+        }
     }
     
     return to_string(temp_times[0]) + ":" + to_string(temp_times[1]) + ":" + to_string(temp_times[2]);      // used '+' because '<<' gives error & only used for 'cout'      converts 'int' to 'string'      { hr, min, sec }
