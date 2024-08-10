@@ -100,7 +100,7 @@ float LinuxParser::MemoryUtilization()
 // TODO: Read and return the system uptime
 long LinuxParser::UpTime() 
 {
-  long uptime;  // 1ST LARGE VALUE & 2nd large value    { 1st value -> system uptime 2nd value -> system idle time} <---(in Cmake)
+  long uptime;  // 1ST LARGE VALUE    { 1st value -> system uptime 2nd value -> system idle time} <---(in Cmake)
   string line;
   ifstream stream(kProcDirectory + kUptimeFilename);  // input file stream from path for operating system kernel version          operating system kernel version - "proc directory + version file name"
   if (stream.is_open())
