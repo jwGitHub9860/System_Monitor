@@ -115,26 +115,7 @@ long LinuxParser::UpTime()
 // TODO: Read and return the number of jiffies for the system   // jiffy - unit of time in <linux/jiffies.h>
 long LinuxParser::Jiffies()   // JIFFIES ARE THE LARGE NUMBERS
 {
-  //long num_of_jiff;  // 2ND LARGE VALUE    { 1st value -> cpu, 2nd value -> user int, 3rd value -> nice int, 4th value -> system int, 5th value -> idle int, 6th token - irq int, 7th token - softirq int} <---(in Cmake)
-  string key, line;
-  ifstream stream(kProcDirectory + kStatFilename);  // input file stream from path for operating system kernel version          operating system kernel version - "proc directory + stat file name"
-
-  long user, nice, system, idle, iowait, irq, softirq;
-  string find_cpu = line.substr(0, 3);    // finds cpu information
-
-  if (stream.is_open())
-  {
-    while (getline(stream, line))  // read in line; while loop used due to multiple lines
-    {
-      istringstream linestream(line);    // creates string stream from "line"
-      linestream >> user >> nice >> system >> idle >> iowait >> irq >> softirq;  // allows to pull tokens off stream     first token - user     second token - nice     third token - system     fouth token - idle     fifth token - iowait     sixth token - irq     seventh token - softirq
-      if (find_cpu == "cpu")  // check if "line" holds cpu info (line = cpu / cpu...#)
-      {
-        return user >> nice >> system >> idle >> iowait >> irq >> softirq;
-      }
-    }
-  }
-  return user >> nice >> system >> idle >> iowait >> irq >> softirq;
+  return LinuxParser::UpTime * sysconf(_SC_CLK_TCK);  // jiffies = total uptime * sysconf(_SC_CLK_TCK)      sysconf(_SC_CLK_TCK) - amount of time measured in USER_HZ
 }
 
 // TODO: Read and return the number of active jiffies for a PID
