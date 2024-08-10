@@ -116,7 +116,7 @@ long LinuxParser::UpTime()
 long LinuxParser::Jiffies()   // JIFFIES ARE THE LARGE NUMBERS
 {
   long num_of_jiff;  // 2ND LARGE VALUE    { 1st value -> cpu, 2nd value -> user int, 3rd value -> nice int, 4th value -> system int, 5th value -> idle int, 6th token - irq int, 7th token - softirq int} <---(in Cmake)
-  string line;
+  string key, line;
   ifstream stream(kProcDirectory + kStatFilename)  // input file stream from path for operating system kernel version          operating system kernel version - "proc directory + stat file name"
 
   int user, nice, system, idle, iowait, irq, softirq;
