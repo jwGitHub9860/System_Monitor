@@ -75,7 +75,8 @@ vector<int> LinuxParser::Pids() {
 float LinuxParser::MemoryUtilization()
 {
   float total_memory, free_memory;
-  string key, value;
+  string key, line;
+  float value;
   ifstream stream(kProcDirectory + kMeminfoFilename);
   if (stream.is_open())
   {
