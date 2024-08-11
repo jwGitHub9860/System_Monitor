@@ -150,26 +150,8 @@ long LinuxParser::ActiveJiffies()
 // TODO: Read and return the number of idle jiffies for the system
 long LinuxParser::IdleJiffies()
 {
-  //long active_jiffies;  // 3RD LARGE VALUE <---(is it really?)    { 1st value -> cpu, 2nd value -> user int, 3rd value -> nice int, 4th value -> system int, 5th value -> idle int, 6th token - irq int, 7th token - softirq int} <---(in Cmake)
-  string key, line;
-  ifstream stream(kProcDirectory + kStatFilename);  // input file stream from path for operating system kernel version          operating system kernel version - "proc directory + stat file name"
-
-  long user, nice, system, idle, iowait, irq, softirq;
-  //string find_cpu = line.substr(0, 3);    // finds cpu information
-
-  if (stream.is_open())
-  {
-    while (getline(stream, line))  // read in line; while loop used due to multiple lines
-    {
-      istringstream linestream(line);    // creates string stream from "line"
-      linestream >> key >> user >> nice >> system >> idle >> iowait >> irq >> softirq;  // allows to pull tokens off stream     first token - user     second token - nice     third token - system     fouth token - idle     fifth token - iowait     sixth token - irq     seventh token - softirq
-      if (key == "cpu")  // check if "line" holds cpu info (line = cpu / cpu...#)
-      {
-        return idle + iowait;  // Idle Jiffies = idle + iowait
-      }
-    }
-  }
-  return idle + iowait;  // Idle Jiffies = idle + iowait
+  vector<string> jiffies = CpuUtilization();  // obtains "jiffies" from CpuUtilization() function
+  return stol(jiffies[kIdle_]) + stol(jiffies[kIOwait_]);  // Idle Jiffies = idle + iowait
 }
 
 // TODO: Read and return CPU utilization
