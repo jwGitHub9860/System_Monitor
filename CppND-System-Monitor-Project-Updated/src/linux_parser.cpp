@@ -128,16 +128,14 @@ long LinuxParser::ActiveJiffies(int pid)
 
   if (stream.is_open())
   {
-    while (getline(stream, line))  // read in line; while loop used due to multiple lines
+    getline(stream, line);   // gets line from stream & stores it in "string line"
+    istringstream linestream(line);    // creates string stream from "line"
+    for (int i = 0; i < 17; i++)
     {
-      istringstream linestream(line);    // creates string stream from "line"
-      linestream >> key >> user >> nice >> system >> idle >> iowait >> irq >> softirq;  // allows to pull tokens off stream     first token - user     second token - nice     third token - system     fouth token - idle     fifth token - iowait     sixth token - irq     seventh token - softirq
-      for (int i = 0; i < 17; i++)
-      {
-        jiffies.emplace_back(value);
-      }
-      return stol(jiffies[16]) + stol(jiffies[15]) + stol(jiffies[14]) + stol(jiffies[13]);  // for '/proc/[PID]/stat', Active Jiffies = cstime + cutime + stime + utime    Active Jiffies = index[16] + index[15] + index[14] + index[13]
+      linestream >> value;  // allows to pull tokens off stream     first token - value
+      jiffies.emplace_back(value);
     }
+    return stol(jiffies[16]) + stol(jiffies[15]) + stol(jiffies[14]) + stol(jiffies[13]);  // for '/proc/[PID]/stat', Active Jiffies = cstime + cutime + stime + utime    Active Jiffies = index[16] + index[15] + index[14] + index[13]
   }
   return 0;
 }
