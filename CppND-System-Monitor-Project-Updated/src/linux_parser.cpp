@@ -173,7 +173,24 @@ long LinuxParser::IdleJiffies()
 }
 
 // TODO: Read and return CPU utilization
-vector<string> LinuxParser::CpuUtilization() { return {}; }
+vector<string> LinuxParser::CpuUtilization()  // finds lines that hold cpu info
+{
+  vector<string> jiffies;   // holds jiffies (Large Values)
+  string line, cpu_key, value;
+  ifstream stream(kProcDirectory + kStatFilename);  // input file stream from path for operating system kernel version          operating system kernel version - "proc directory + stat file name"
+  if (stream.is_open())
+  {
+    getline(stream, line);   // gets line from stream & stores it in "string line"
+    istringstream linestream(line);    // creates string stream from "line"
+    linestream >> cpu_key;  // allows to pull tokens off stream     first token - cpu_key     checks if "cpu_key" holds cpu info (key = cpu / cpu...#)
+
+    while (linestream >> value)  // allows to pull tokens off stream     first token - value     pulls off numbers in cpu line, NOT cpu string; while loop used due to multiple lines
+    {
+      jiffies.push_back(value);
+    }
+  }
+  return jiffies;
+}
 
 // TODO: Read and return the total number of processes
 int LinuxParser::TotalProcesses()
