@@ -186,7 +186,7 @@ vector<string> LinuxParser::CpuUtilization()  // finds lines that hold cpu info
 
     while (linestream >> value)  // allows to pull tokens off stream     first token - value     pulls off numbers in cpu line, NOT cpu string; while loop used due to multiple lines
     {
-      jiffies.push_back(value);
+      jiffies.emplace_back(value);
     }
   }
   return {};
