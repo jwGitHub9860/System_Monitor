@@ -189,7 +189,7 @@ vector<string> LinuxParser::CpuUtilization()  // finds lines that hold cpu info
       jiffies.push_back(value);
     }
   }
-  return jiffies;
+  return {};
 }
 
 // TODO: Read and return the total number of processes
