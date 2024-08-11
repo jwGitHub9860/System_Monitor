@@ -120,7 +120,27 @@ long LinuxParser::Jiffies()   // JIFFIES ARE THE LARGE NUMBERS
 
 // TODO: Read and return the number of active jiffies for a PID
 // REMOVE: [[maybe_unused]] once you define the function
-long LinuxParser::ActiveJiffies(int pid[[maybe_unused]]) { return 0; }
+long LinuxParser::ActiveJiffies(int pid)
+{
+  vector<string> jiffies;
+  string value, line;
+  ifstream stream(kProcDirectory + to_string(pid) + kStatFilename);  // input file stream from path for operating system kernel version          operating system kernel version - "proc directory + stat file name"
+
+  if (stream.is_open())
+  {
+    while (getline(stream, line))  // read in line; while loop used due to multiple lines
+    {
+      istringstream linestream(line);    // creates string stream from "line"
+      linestream >> key >> user >> nice >> system >> idle >> iowait >> irq >> softirq;  // allows to pull tokens off stream     first token - user     second token - nice     third token - system     fouth token - idle     fifth token - iowait     sixth token - irq     seventh token - softirq
+      for (int i = 0; i < 17; i++)
+      {
+        jiffies.emplace_back(value);
+      }
+      return stol(jiffies[16]) + stol(jiffies[15]) + stol(jiffies[14]) + stol(jiffies[13]);  // for '/proc/[PID]/stat', Active Jiffies = cstime + cutime + stime + utime    Active Jiffies = index[16] + index[15] + index[14] + index[13]
+    }
+  }
+  return 0;
+}
 
 // TODO: Read and return the number of active jiffies for the system
 long LinuxParser::ActiveJiffies()
