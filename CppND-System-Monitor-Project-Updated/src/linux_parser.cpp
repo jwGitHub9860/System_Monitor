@@ -124,7 +124,7 @@ long LinuxParser::ActiveJiffies(int pid)
 {
   vector<string> jiffies;
   string value, line;
-  ifstream stream(kProcDirectory + to_string(pid) + kStatFilename);  // input file stream from path for operating system kernel version          operating system kernel version - "proc directory + stat file name"
+  ifstream stream(kProcDirectory + to_string(pid) + kStatFilename);  // input file stream from path for operating system kernel version          operating system kernel version - "proc directory + pid + stat file name"
 
   if (stream.is_open())
   {
