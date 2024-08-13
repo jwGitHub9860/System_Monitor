@@ -230,7 +230,7 @@ string LinuxParser::Command(int pid)
   ifstream stream(kProcDirectory + to_string(pid) + kCmdlineFilename);  // input file stream from path for operating system kernel version          operating system kernel version - "proc directory + pid + cmdline file name"
   if (stream.is_open())
   {
-    getline(stream, cmdline);   // gets line from stream & stores it in "string line"
+    getline(stream, cmdline);   // gets cmdline from stream & stores it in "string line"
     stream.close();
     return cmdline;
   }
