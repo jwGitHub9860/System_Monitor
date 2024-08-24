@@ -292,7 +292,7 @@ string LinuxParser::User(int pid)
       istringstream linestream(line);  // input string stream
       while (linestream >> user >> letter_x >> path)  // allows to pull tokens off MULTIPLE streams     1st token - user     2nd token - letter_x     3rd token - path
       {
-        if (user == Uid)
+        if (user == Uid)  // checks if "user" matches "Uid"
         {
           return user;
         } 
