@@ -279,7 +279,28 @@ string LinuxParser::Uid(int pid)
 
 // TODO: Read and return the user associated with a process
 // REMOVE: [[maybe_unused]] once you define the function
-string LinuxParser::User(int pid[[maybe_unused]]) { return string(); }
+string LinuxParser::User(int pid)
+{
+  string line, user, letter_x, path;
+  string Uid = LinuxParser::Uid(pid);   // function that returns USER
+  ifstream stream(kPasswordPath);  // input file stream from path for operating system kernel version          operating system kernel version - "password path directory"
+  if (stream.is_open())
+  {
+    while (getline(stream, line))  // read in line; while loop used due to multiple lines
+    {
+      replace(line.begin(), line.end(), ':', ' ');
+      istringstream linestream(line);  // input string stream
+      while (linestream >> user >> letter_x >> path)  // allows to pull tokens off MULTIPLE streams     1st token - user     2nd token - letter_x     3rd token - path
+      {
+        if (user == Uid)
+        {
+          return user;
+        } 
+      }
+    }
+  }
+  return string();
+}
 
 // TODO: Read and return the uptime of a process
 // REMOVE: [[maybe_unused]] once you define the function
