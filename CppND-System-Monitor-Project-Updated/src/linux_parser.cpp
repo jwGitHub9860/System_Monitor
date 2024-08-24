@@ -268,7 +268,7 @@ string LinuxParser::Uid(int pid)
     getline(stream, line);   // gets line from stream & stores it in "string line"
     istringstream linestream(line);  // input string stream
     linestream >> key >> value;  // allows to pull tokens off stream     1st token - key     2nd token - value
-    if (key == "Uid:")   // checks if "key" contains Uid (user ID)
+    if (key == "Uid:")   // checks if "key" contains 'Uid' (user ID)
     {
       stream.close();
       return value;
