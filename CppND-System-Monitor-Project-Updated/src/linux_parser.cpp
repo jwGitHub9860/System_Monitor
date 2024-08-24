@@ -249,7 +249,7 @@ string LinuxParser::Ram(int pid)
     getline(stream, line);   // gets line from stream & stores it in "string line"
     istringstream linestream(line);  // input string stream
     linestream >> key >> value;  // allows to pull tokens off stream     1st token - key     2nd token - value
-    if (key == "VmSize")   // checks if key contains VmSize (memory usage)
+    if (key == "VmSize")   // checks if "key" contains 'VmSize' (memory usage)
     {
       return value;
     }
