@@ -107,7 +107,7 @@ long LinuxParser::UpTime()
   {
     getline(stream, line);   // gets line from stream & stores it in "string line"
     istringstream linestream(line);    // creates string stream from "line"
-    linestream >> uptime;  // allows to pull tokens off stream     1st token - uptime     2nd token - idle_time    78322.97 1119670.94 <---(in Cmake)   MUST INCLUDE BOTH UPTIME & IDLE TIME or error will be returned
+    linestream >> uptime;  // allows to pull tokens off stream     1st token - uptime     2nd token - idle_time    78322.97 1119670.94 <---(in Cmake)
   }
   return uptime;  // if opening string or something else fails, return "uptime" as Blank String Default     MUST CHANGE "uptime" from 'string' to 'long' LAST or error will be returned
 }
