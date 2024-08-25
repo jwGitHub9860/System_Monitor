@@ -18,6 +18,13 @@ class Process {
 
   // TODO: Declare any necessary private members
  private:
+  float User_col;
+  float Nice_col;
+  float System_col;
+  float Idle_col;
+  float Iowait_col;
+  float Irq_col;
+  float Softirq_col;
 };
 
 #endif
