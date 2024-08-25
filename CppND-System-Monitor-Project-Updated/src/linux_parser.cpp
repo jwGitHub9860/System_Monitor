@@ -204,7 +204,7 @@ int LinuxParser::RunningProcesses()
   int num_of_run_process;
   string line;
   string key;
-  ifstream stream(kProcDirectory + kStatFilename)  // input file stream from path for operating system kernel version          operating system kernel version - "proc directory + stat file name"
+  ifstream stream(kProcDirectory + kStatFilename);  // input file stream from path for operating system kernel version          operating system kernel version - "proc directory + stat file name"
   if (stream.is_open())
   {
     while (getline(stream, line))   // gets line from stream & stores it in "string line"
