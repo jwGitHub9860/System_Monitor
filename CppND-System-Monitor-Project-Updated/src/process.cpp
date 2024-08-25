@@ -17,7 +17,11 @@ using namespace std;
 int Process::Pid() { return 0; }
 
 // TODO: Return this process's CPU utilization
-float Process::CpuUtilization() { return 0; }
+float Process::CpuUtilization()
+{
+    float cpu_utilization;
+    return cpu_utilization = User_col + Nice_col + System_col + Idle_col + Iowait_col + Irq_col + Softirq_col;
+}
 
 // TODO: Return the command that generated this process
 string Process::Command() { return string(); }
