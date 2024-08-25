@@ -308,7 +308,6 @@ long LinuxParser::UpTime(int pid)
 {
   long uptime;
   string line;
-  string UpTime = LinuxParser::UpTime();  // function that returns UPTIME
   ifstream stream(kProcDirectory + to_string(pid) + kStatFilename);  // input file stream from path for operating system kernel version          operating system kernel version - "proc directory + pid + STAT file name"          use Same stream as "TotalProcesses()" & "RunningProcesses()" since both deal with processes
   if (stream.is_open())
   {
