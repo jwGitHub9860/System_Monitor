@@ -25,6 +25,8 @@ class Process {
   float Iowait_col;
   float Irq_col;
   float Softirq_col;
+
+  string user_name;
 };
 
 #endif
