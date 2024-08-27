@@ -31,6 +31,8 @@ class Process {
   string command;
 
   string mem_usage;
+  string mem_total;
+  string mem_free;
 
   string user_name;
 
