@@ -33,6 +33,8 @@ class Process {
   string mem_usage;
 
   string user_name;
+
+  long int uptime;
 };
 
 #endif
