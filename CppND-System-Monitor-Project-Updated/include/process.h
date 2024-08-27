@@ -28,6 +28,8 @@ class Process {
   float Irq_col;
   float Softirq_col;
 
+  string command;
+
   string user_name;
 };
 
