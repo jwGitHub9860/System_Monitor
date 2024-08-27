@@ -22,6 +22,8 @@ class Process {
   // TODO: Declare any necessary private members
  private:
   int process_ID;
+
+  float cpu_utilization;
   
   float User_col;
   float Nice_col;
