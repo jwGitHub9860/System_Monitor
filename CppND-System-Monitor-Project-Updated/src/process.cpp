@@ -14,6 +14,8 @@ using std::vector;
 
 using namespace std;
 
+Process::Process(int pid) { return Pid = pid; }     // constructor ---> DEFINES SPECIFIC "int pid" OF SPECIFIC PROCESS
+
 // TODO: Return this process's ID
 int Process::Pid() { return process_ID; }
 
