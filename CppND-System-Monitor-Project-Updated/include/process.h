@@ -30,6 +30,8 @@ class Process {
 
   string command;
 
+  string mem_uge;
+
   string user_name;
 };
 
