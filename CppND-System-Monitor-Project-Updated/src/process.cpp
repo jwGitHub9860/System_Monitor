@@ -31,19 +31,7 @@ string Process::Command() { return string(); }
 string Process::Ram() { return string(); }
 
 // TODO: Return the user (name) that generated this process
-string Process::User()
-{
-    string user, line;
-    ifstream stream(LinuxParser::kPasswordPath);
-    if (stream.is_open())
-    {
-        getline(stream, line);
-        istringstream linestream(line);
-        linestream >> user;
-        return user;
-    }
-    return string();
-}
+string Process::User() { return user_name; }
 
 // TODO: Return the age of this process (in seconds)
 long int Process::UpTime() { return 0; }
