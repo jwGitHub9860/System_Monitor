@@ -20,7 +20,6 @@ int Process::Pid() { return process_ID; }
 // TODO: Return this process's CPU utilization
 float Process::CpuUtilization()
 {
-    float cpu_utilization;
     return cpu_utilization = User_col + Nice_col + System_col + Idle_col + Iowait_col + Irq_col + Softirq_col;
 }
 
