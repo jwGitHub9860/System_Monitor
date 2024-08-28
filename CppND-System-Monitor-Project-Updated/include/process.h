@@ -29,13 +29,13 @@ class Process {
   float cpu_utilization;
   float active_jiffies;
   float idle_jiffies;
-  float prev_User;
-  float prev_Nice;
-  float prev_System;
-  float prev_Idle;
-  float prev_Iowait;
-  float prev_Irq;
-  float prev_Softirq;
+  float prev_User = 0;  // MUST BE INITIALIZED
+  float prev_Nice = 0;  // MUST BE INITIALIZED
+  float prev_System = 0;  // MUST BE INITIALIZED
+  float prev_Idle = 0;  // MUST BE INITIALIZED
+  float prev_Iowait = 0;  // MUST BE INITIALIZED
+  float prev_Irq = 0;  // MUST BE INITIALIZED
+  float prev_Softirq = 0;  // MUST BE INITIALIZED
 
   string command;
 
