@@ -22,7 +22,10 @@ int Process::Pid() { return process_ID; }
 // TODO: Return this process's CPU utilization
 float Process::CpuUtilization()
 {
-    return cpu_utilization = User_col + Nice_col + System_col + Idle_col + Iowait_col + Irq_col + Softirq_col;
+    cpu_utilization = User_col + Nice_col + System_col + Idle_col + Iowait_col + Irq_col + Softirq_col;
+    active_jiffies = LinuxParser::ActiveJiffies();
+    idle_jiffies = LinuxParser::IdleJiffies();
+    return cpu_utilization;
 }
 
 // TODO: Return the command that generated this process
