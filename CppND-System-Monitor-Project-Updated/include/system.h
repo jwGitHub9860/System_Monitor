@@ -7,6 +7,8 @@
 #include "process.h"
 #include "processor.h"
 
+using namespace std;
+
 class System {
  public:
   Processor& Cpu();                   // TODO: See src/system.cpp
