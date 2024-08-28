@@ -27,14 +27,15 @@ class Process {
   int process_ID;
 
   float cpu_utilization;
-  
-  float User_col;
-  float Nice_col;
-  float System_col;
-  float Idle_col;
-  float Iowait_col;
-  float Irq_col;
-  float Softirq_col;
+  float active_jiffies;
+  float idle_jiffies;
+  float prev_User;
+  float prev_Nice;
+  float prev_System;
+  float prev_Idle;
+  float prev_Iowait;
+  float prev_Irq;
+  float prev_Softirq;
 
   string command;
 
