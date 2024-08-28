@@ -8,15 +8,15 @@
 namespace LinuxParser {
 // Paths
 const std::string kProcDirectory{"/proc/"};   // lots of system data location
-const std::string kCmdlineFilename{"/cmdline"}; // possible Command()
-const std::string kCpuinfoFilename{"/cpuinfo"}; // possible CpuUtilization()
+const std::string kCmdlineFilename{"/cmdline"};
+const std::string kCpuinfoFilename{"/cpuinfo"};
 const std::string kStatusFilename{"/status"};
-const std::string kStatFilename{"/stat"};   // 1 possible User()                                                                                                                                                   Jiffies(), ActiveJiffies(), AcitiveJiffies(int pid), IdleJiffies()
-const std::string kUptimeFilename{"/uptime"}; // possible UpTime()
-const std::string kMeminfoFilename{"/meminfo"}; // possible Ram()                                                                                                                                                  MemoryUtilization()
-const std::string kVersionFilename{"/version"}; // possible Pid()
+const std::string kStatFilename{"/stat"};
+const std::string kUptimeFilename{"/uptime"};
+const std::string kMeminfoFilename{"/meminfo"};
+const std::string kVersionFilename{"/version"};
 const std::string kOSPath{"/etc/os-release"};   // stores operating system name
-const std::string kPasswordPath{"/etc/passwd"}; // 2 possible User()                                                                                                                                               User(int pid)
+const std::string kPasswordPath{"/etc/passwd"};
 
 // System
 float MemoryUtilization();
