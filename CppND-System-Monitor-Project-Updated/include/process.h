@@ -29,6 +29,8 @@ class Process {
   float cpu_utilization;
   float active_jiffies;
   float idle_jiffies;
+  float Irq_col;
+  float Softirq_col;
   float prev_User = 0;  // MUST BE INITIALIZED
   float prev_Nice = 0;  // MUST BE INITIALIZED
   float prev_System = 0;  // MUST BE INITIALIZED
