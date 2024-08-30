@@ -31,7 +31,7 @@ float Process::CpuUtilization()
 
     cpu_utilization = total_jiffies - idle_jiffies;     // CPU utilization = Total time - Idle time
 
-    cpu_utilization_percentage = (cpu_utilization / total_jiffies) * 100;
+    cpu_utilization_percentage = (cpu_utilization / total_jiffies) * 100;   // CPU utilization will be shown as PERCENTAGE
     
     return cpu_utilization_percentage;
 }
