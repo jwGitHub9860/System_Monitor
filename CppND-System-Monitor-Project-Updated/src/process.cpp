@@ -24,14 +24,16 @@ float Process::CpuUtilization()
 {
     cpu_utilization = prev_User + prev_Nice + prev_System + prev_Idle + prev_Iowait + prev_Irq + prev_Softirq;      // initialize previous values
 
-    // CURRENT cpu values
+    // Current CPU values
     vector<string> jiffies = LinuxParser::CpuUtilization();
     total_jiffies = stol(jiffies[LinuxParser::Jiffies()]);   // ACCEPTABLE?    ONLY NEED STATES PERTAINING TO CPU ITSELF (NOT GUEST)
     idle_jiffies = stol(jiffies[LinuxParser::IdleJiffies()]);   // ACCEPTABLE?
 
     cpu_utilization = total_jiffies - idle_jiffies;     // CPU utilization = Total time - Idle time
+
+    cpu_utilization_percentage = (cpu_utilization / total_jiffies) * 100;
     
-    return cpu_utilization;
+    return cpu_utilization_percentage;
 }
 
 // TODO: Return the command that generated this process
