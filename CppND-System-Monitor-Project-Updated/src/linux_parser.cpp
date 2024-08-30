@@ -113,15 +113,14 @@ long LinuxParser::UpTime()
 }
 
 // TODO: Read and return the number of jiffies for the system   // jiffy - unit of time in <linux/jiffies.h>
-long LinuxParser::Jiffies()   // JIFFIES ARE THE LARGE NUMBERS
+long LinuxParser::Jiffies()   // TOTAL JIFFIES CPU executed
 {
   long jiffies;
   vector<string> CPU_Info = CpuUtilization();   // inputs values into vector
   for (int i : CPU_Info)    // iterate through entire /proc/stat file
   {
-    jiffies += stol(i);
+    jiffies += stol(i);   // JIFFIES ARE THE LARGE NUMBERS
   }
-  
   return jiffies;
 }
 
