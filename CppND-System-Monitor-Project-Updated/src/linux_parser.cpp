@@ -155,7 +155,7 @@ long LinuxParser::IdleJiffies()
 }
 
 // TODO: Read and return CPU utilization
-vector<string> LinuxParser::CpuUtilization()  // finds lines that hold cpu info
+vector<string> LinuxParser::CpuUtilization()  // finds lines that hold cpu info & inputs values into vector
 {
   vector<string> jiffies;   // holds jiffies (Large Values)
   string line, cpu_key, value;
