@@ -115,7 +115,7 @@ long LinuxParser::UpTime()
 // TODO: Read and return the number of jiffies for the system   // jiffy - unit of time in <linux/jiffies.h>
 long LinuxParser::Jiffies()   // JIFFIES ARE THE LARGE NUMBERS
 {
-  return LinuxParser::UpTime * sysconf(_SC_CLK_TCK);  // jiffies = total uptime * sysconf(_SC_CLK_TCK)      sysconf(_SC_CLK_TCK) - amount of time measured in USER_HZ
+  return LinuxParser::UpTime * sysconf(_SC_CLK_TCK);  // jiffies = total uptime * sysconf(_SC_CLK_TCK)      sysconf(_SC_CLK_TCK) - 
 }
 
 // TODO: Read and return the number of active jiffies for a PID
@@ -317,7 +317,7 @@ long LinuxParser::UpTime(int pid)
     {
       linestream >> uptime;  // allows to pull tokens off stream     1st token - uptime     2nd token - idle_time    78322.97 1119670.94 <---(in Cmake Example)
     }
-    return uptime / sysconf(_SC_CLK_TCK);   // sysconf(_SC_CLK_TCK) - returns number of clock ticks per second
+    return uptime / sysconf(_SC_CLK_TCK);   // sysconf(_SC_CLK_TCK) - returns number of clock ticks per second, amount of time measured in USER_HZ
   }
   return uptime;  // if opening long int or something else fails, return "uptime" as Blank Long Int Default
 }
