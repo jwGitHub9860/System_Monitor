@@ -36,9 +36,9 @@ enum CPUStates {
   kIOwait_,
   kIRQ_,
   kSoftIRQ_,
-  kSteal_,
-  kGuest_,
-  kGuestNice_
+  kSteal_,      // CPU time guest virtual machine needs, not provided by host
+  kGuest_,      // counts time spent running virtual CPU for guest operating systems
+  kGuestNice_   // line showing total number of Niced processes running virtual CPU
 };
 std::vector<std::string> CpuUtilization();
 long Jiffies();
