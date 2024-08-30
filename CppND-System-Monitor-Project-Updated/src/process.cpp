@@ -26,8 +26,10 @@ float Process::CpuUtilization()
 
     // CURRENT cpu values
     vector<string> jiffies = LinuxParser::CpuUtilization();
-    active_jiffies = stol(jiffies[LinuxParser::ActiveJiffies()]) + stol(jiffies[LinuxParser::kIRQ_]) + stol(jiffies[LinuxParser::kSoftIRQ_]) + stol(jiffies[LinuxParser::kSteal_]);   // ACCEPTABLE?    ONLY NEED STATES PERTAINING TO CPU ITSELF (NOT GUEST)
+    total_jiffies = stol(jiffies[LinuxParser::Jiffies()]);   // ACCEPTABLE?    ONLY NEED STATES PERTAINING TO CPU ITSELF (NOT GUEST)
     idle_jiffies = stol(jiffies[LinuxParser::IdleJiffies()]);   // ACCEPTABLE?
+
+    cpu_utilization = total_jiffies - idle_jiffies;     // CPU utilization = Total time - Idle time
     
     return cpu_utilization;
 }
