@@ -26,6 +26,7 @@ class Process {
   
   int process_ID;
 
+  float cpu_utilization_percentage;
   float cpu_utilization;
   float total_jiffies;
   float idle_jiffies;
