@@ -35,7 +35,7 @@ enum CPUStates {
   kIdle_,
   kIOwait_,
   kIRQ_,
-  kSoftIRQ_,
+  kSoftIRQ_,    // shows how many SoftIrqs being serviced
   kSteal_,      // CPU time guest virtual machine needs, not provided by host
   kGuest_,      // counts time spent running virtual CPU for guest operating systems
   kGuestNice_   // line showing total number of Niced processes running virtual CPU
