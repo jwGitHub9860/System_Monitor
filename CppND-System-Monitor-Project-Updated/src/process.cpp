@@ -22,9 +22,13 @@ int Process::Pid() { return process_ID; }
 // TODO: Return this process's CPU utilization
 float Process::CpuUtilization()
 {
-    cpu_utilization = prev_User + prev_Nice + prev_System + prev_Idle + prev_Iowait + prev_Irq + prev_Softirq;
-    active_jiffies = LinuxParser::ActiveJiffies();
-    idle_jiffies = LinuxParser::IdleJiffies();
+    cpu_utilization = prev_User + prev_Nice + prev_System + prev_Idle + prev_Iowait + prev_Irq + prev_Softirq;      // initialize previous values
+
+    vector<string> jiffies = LinuxParser::CpuUtilization();
+    active_jiffies = stol(jiffies[LinuxParser::ActiveJiffies()]);   // ACCEPTABLE?
+    idle_jiffies = stol(jiffies[LinuxParser::IdleJiffies()]);   // ACCEPTABLE?
+    Irq_col = stol(jiffies[LinuxParser::kIRQ_]);
+    Softirq_col = stol(jiffies[LinuxParser::kSoftIRQ_]);
     return cpu_utilization;
 }
 
