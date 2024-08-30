@@ -115,7 +115,14 @@ long LinuxParser::UpTime()
 // TODO: Read and return the number of jiffies for the system   // jiffy - unit of time in <linux/jiffies.h>
 long LinuxParser::Jiffies()   // JIFFIES ARE THE LARGE NUMBERS
 {
-  return LinuxParser::UpTime * sysconf(_SC_CLK_TCK);  // jiffies = total uptime * sysconf(_SC_CLK_TCK)      sysconf(_SC_CLK_TCK) - 
+  long jiffies;
+  vector<string> CPU_Info = CpuUtilization();   // inputs values into vector
+  for (int i : CPU_Info)    // iterate through entire /proc/stat file
+  {
+    jiffies += stol(i);
+  }
+  
+  return jiffies;
 }
 
 // TODO: Read and return the number of active jiffies for a PID
