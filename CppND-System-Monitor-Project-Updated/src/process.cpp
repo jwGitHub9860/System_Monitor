@@ -25,10 +25,9 @@ float Process::CpuUtilization()
     cpu_utilization = prev_User + prev_Nice + prev_System + prev_Idle + prev_Iowait + prev_Irq + prev_Softirq;      // initialize previous values
 
     vector<string> jiffies = LinuxParser::CpuUtilization();
-    active_jiffies = stol(jiffies[LinuxParser::ActiveJiffies()]);   // ACCEPTABLE?
+    active_jiffies = stol(jiffies[LinuxParser::ActiveJiffies()]) + stol(jiffies[LinuxParser::kIRQ_]) + stol(jiffies[LinuxParser::kSoftIRQ_]) + stol(jiffies[LinuxParser::kSteal_]);   // ACCEPTABLE?    ONLY NEED STATES PERTAINING TO CPU ITSELF (NOT GUEST)
     idle_jiffies = stol(jiffies[LinuxParser::IdleJiffies()]);   // ACCEPTABLE?
-    Irq_col = stol(jiffies[LinuxParser::kIRQ_]);
-    Softirq_col = stol(jiffies[LinuxParser::kSoftIRQ_]);
+    
     return cpu_utilization;
 }
 
