@@ -24,8 +24,7 @@ float Process::CpuUtilization()
 {
     prev_total_jiffies = prev_User + prev_Nice + prev_System + prev_Irq + prev_Softirq;      // initialize previous values
     prev_idle_jiffies = prev_Idle + prev_Iowait;      // initialize previous values
-
-    // Current CPU values
+    
     vector<string> jiffies = LinuxParser::CpuUtilization();
     float current_total_jiffies = stol(jiffies[LinuxParser::Jiffies()]);   // ACCEPTABLE?    ONLY NEED STATES PERTAINING TO CPU ITSELF (NOT GUEST)
     float current_idle_jiffies = stol(jiffies[LinuxParser::IdleJiffies()]);   // ACCEPTABLE?
