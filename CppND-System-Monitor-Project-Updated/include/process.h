@@ -32,6 +32,8 @@ class Process {
   float idle_jiffies;
   float prev_total_jiffies;
   float prev_idle_jiffies;
+  float current_total_jiffies;
+  float current_idle_jiffies;
   //float Irq_col;
   //float Softirq_col;
   float prev_User = 0;  // MUST BE INITIALIZED
