@@ -27,8 +27,11 @@ float Process::CpuUtilization()
 
     // Current CPU values
     vector<string> jiffies = LinuxParser::CpuUtilization();
-    total_jiffies = stol(jiffies[LinuxParser::Jiffies()]);   // ACCEPTABLE?    ONLY NEED STATES PERTAINING TO CPU ITSELF (NOT GUEST)
-    idle_jiffies = stol(jiffies[LinuxParser::IdleJiffies()]);   // ACCEPTABLE?
+    float current_total_jiffies = stol(jiffies[LinuxParser::Jiffies()]);   // ACCEPTABLE?    ONLY NEED STATES PERTAINING TO CPU ITSELF (NOT GUEST)
+    float current_idle_jiffies = stol(jiffies[LinuxParser::IdleJiffies()]);   // ACCEPTABLE?
+
+    float total_jiffies = current_total_jiffies - prev_total_jiffies;   // apps are ALWAYS opened & closed at anytime ---> MUST USE FIRST "current total - previous total"
+    float idle_jiffies = current_idle_jiffies - prev_idle_jiffies;      // apps are ALWAYS opened & closed at anytime ---> MUST USE FIRST "current idle - previous idle"
 
     cpu_utilization = total_jiffies - idle_jiffies;     // CPU utilization = Total time - Idle time
 
