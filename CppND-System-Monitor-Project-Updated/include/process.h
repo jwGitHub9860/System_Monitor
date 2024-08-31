@@ -25,9 +25,7 @@ class Process {
   int pid_;
   
   int process_ID;
-
-  float cpu_utilization_percentage;
-  float cpu_utilization;
+  
   float prev_total_jiffies = 0;  // MUST BE INITIALIZED
   float prev_idle_jiffies = 0;  // MUST BE INITIALIZED
   //float Irq_col;
