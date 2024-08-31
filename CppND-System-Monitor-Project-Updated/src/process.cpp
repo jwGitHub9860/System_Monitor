@@ -31,10 +31,8 @@ float Process::CpuUtilization()
 
     float total_jiffies = current_total_jiffies - prev_total_jiffies;   // apps are ALWAYS opened & closed at anytime ---> MUST USE "current total - previous total"
     float idle_jiffies = current_idle_jiffies - prev_idle_jiffies;      // apps are ALWAYS opened & closed at anytime ---> MUST USE "current idle - previous idle"
-
-    cpu_utilization_percentage = (total_jiffies - idle_jiffies) / total_jiffies;   // CALCULATE PERCENT WITH * 100 OR NOT?                 CPU utilization = Total time - Idle time      CPU utilization will be shown as PERCENTAGE
     
-    return cpu_utilization_percentage;
+    return (total_jiffies - idle_jiffies) / total_jiffies;   // CALCULATE PERCENT WITH * 100 OR NOT?                 CPU utilization = Total time - Idle time      CPU utilization will be shown as PERCENTAGE
 }
 
 // TODO: Return the command that generated this process
