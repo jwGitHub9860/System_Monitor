@@ -22,7 +22,8 @@ int Process::Pid() { return process_ID; }
 // TODO: Return this process's CPU utilization
 float Process::CpuUtilization()
 {
-    cpu_utilization = prev_User + prev_Nice + prev_System + prev_Idle + prev_Iowait + prev_Irq + prev_Softirq;      // initialize previous values
+    prev_total_jiffies = prev_User + prev_Nice + prev_System + prev_Irq + prev_Softirq;      // initialize previous values
+    prev_idle_jiffies = prev_Idle + prev_Iowait;      // initialize previous values
 
     // Current CPU values
     vector<string> jiffies = LinuxParser::CpuUtilization();
