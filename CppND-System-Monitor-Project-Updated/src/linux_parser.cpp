@@ -117,7 +117,7 @@ long LinuxParser::Jiffies()   // TOTAL JIFFIES CPU executed
 {
   long jiffies;
   vector<string> CPU_Info = CpuUtilization();   // inputs values into vector
-  for (int i : CPU_Info)    // iterate through entire /proc/stat file
+  for (int i : CPU_Info)    // iterates through entire /proc/stat file
   {
     jiffies += stol(i);   // JIFFIES ARE THE LARGE NUMBERS
   }
