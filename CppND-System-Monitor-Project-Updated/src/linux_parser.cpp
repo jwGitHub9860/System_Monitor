@@ -16,7 +16,7 @@ using std::vector;
 using namespace std;
 
 // DONE: An example of how to read data from the filesystem
-string LinuxParser::OperatingSystem() {
+string LinuxParser::OperatingSystem() {     // obtains Operating System Name
   string line;
   string key;
   string value;
