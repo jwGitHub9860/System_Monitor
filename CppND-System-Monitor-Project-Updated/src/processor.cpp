@@ -18,5 +18,5 @@ float Processor::Utilization()
         total_time += stof(i);
     }
     
-    return (active_time / cpu_info) * 100;     // CPU usage percent = (Active_CPU_time / Total_CPU_time) * 100
+    return (active_time / total_time) * 100;     // CPU usage percent = (Active_CPU_time / Total_CPU_time) * 100
 }
