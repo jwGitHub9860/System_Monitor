@@ -3,6 +3,8 @@
 #include <set>
 #include <string>
 #include <vector>
+#include <algorithm>
+#include <functional>
 
 #include "linux_parser.h"
 #include "process.h"
@@ -30,7 +32,7 @@ vector<Process>& System::Processes()
         process_.UpTime();
         processes_.emplace_back(process_);
     }
-    
+    sort(processes_.begin(), processes_.end(), less<Process>);      // less<> - boolean using "<" for POINTERS      type of less<> MUST BE 'Process' because vector<type> is 'Process'
     return processes_;
 }
 
