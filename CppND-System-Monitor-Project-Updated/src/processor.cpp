@@ -8,7 +8,7 @@ using namespace std;
 float Processor::Utilization()
 {
     cpu_percent = LinuxParser::CpuUtilization();
-    active_time = cpu_percent[0] + cpu_percent[1] + cpu_percent[2];
-    idle_time = cpu_percent[3] + cpu_percent[4];
+    active_time = stof(cpu_percent[0]) + stof(cpu_percent[1]) + stof(cpu_percent[2]);
+    idle_time = stof(cpu_percent[3]) + stof(cpu_percent[4]);
     return active_time + idle_time;
 }
