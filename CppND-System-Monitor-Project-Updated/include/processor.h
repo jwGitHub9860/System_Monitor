@@ -15,9 +15,7 @@ class Processor {
 
   // TODO: Declare any necessary private members
  private:
-  vector<string> cpu_percent;
-  float active_time;
-  float idle_time;
+   
 };
 
 #endif
