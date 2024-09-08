@@ -15,7 +15,12 @@ using namespace std;
 // REMOVE: [[maybe_unused]] once you define the function
 string Format::ElapsedTime(long seconds)    // calculates Uptime into { Hr:Min:Sec }
 {
-    vector<int> temp_times{};    // holds sec AFTER calculation     { hr, min, sec }
+    long hr = seconds / 3600;
+    seconds = seconds % 3600;
+    long min = seconds / 60;
+    long sec = seconds % 60;
+    return to_string(hr) + ":" + to_string(min) + ":" + to_string(sec);
+    /*vector<int> temp_times{};    // holds sec AFTER calculation     { hr, min, sec }
     vector<int> denominators{ 3600, 60, 1 };    // { hr, min, sec }
 
     long sec = seconds;     // copy of original system uptime (WILL BE CHANGED TO FIND REAL UPTIME)
@@ -31,4 +36,5 @@ string Format::ElapsedTime(long seconds)    // calculates Uptime into { Hr:Min:S
     }
     
     return to_string(temp_times[0]) + ":" + to_string(temp_times[1]) + ":" + to_string(temp_times[2]);      // outputs HH:MM:SS      used '+' because '<<' gives error & only used for 'cout'      converts 'int' to 'string'
+    */
 }
