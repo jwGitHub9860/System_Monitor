@@ -24,8 +24,8 @@ Processor& System::Cpu() { return this->cpu_; }
 // TODO: Return a container composed of the system's processes
 vector<Process>& System::Processes()
 {
-    vector<int> process_Pids = LinuxParser::Pids();     // holds ALL process ID's
     processes_.clear();
+    vector<int> process_Pids = LinuxParser::Pids();     // holds ALL process ID's
     for (auto i : process_Pids)    // iterates through ALL process ID's
     {
         Process process_(i);     // constructor
