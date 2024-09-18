@@ -4,9 +4,6 @@
 #include <string>
 #include <vector>
 
-#include "process.h"
-#include "system.h"
-
 using namespace std;
 
 class Processor {
