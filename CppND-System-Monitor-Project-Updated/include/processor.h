@@ -12,7 +12,8 @@ class Processor {
 
   // TODO: Declare any necessary private members
  private:
-   
+   float prev_total_time = 0;
+   float prev_active_time = 0;
 };
 
 #endif
