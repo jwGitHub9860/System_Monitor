@@ -177,7 +177,6 @@ vector<string> LinuxParser::CpuUtilization()  // finds lines that hold cpu info 
       {
         jiffies.emplace_back(value);
       }
-      
     }
   }
   return {};
