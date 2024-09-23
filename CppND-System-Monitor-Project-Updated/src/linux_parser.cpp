@@ -275,7 +275,7 @@ string LinuxParser::Uid(int pid)
   {
     getline(stream, line);   // gets line from stream & stores it in "string line"
     istringstream linestream(line);  // input string stream
-    linestream >> username << password << user_ID;  // allows to pull tokens off stream     1st token - username     2nd token - password     3rd token - user_ID
+    linestream >> username >> password >> user_ID;  // allows to pull tokens off stream     1st token - username     2nd token - password     3rd token - user_ID
   }
   return user_ID;  // if opening string or something else fails, return "user_ID" as Blank String Default
 }
