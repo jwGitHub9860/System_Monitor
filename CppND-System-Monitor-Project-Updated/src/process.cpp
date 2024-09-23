@@ -25,7 +25,7 @@ float Process::CpuUtilization()
     prev_total_jiffies = prev_User + prev_Nice + prev_System + prev_Irq + prev_Softirq;      // initialize previous values
     prev_idle_jiffies = prev_Idle + prev_Iowait;      // initialize previous values
     
-    //vector<string> jiffies = LinuxParser::CpuUtilization();
+    vector<string> jiffies = LinuxParser::CpuUtilization();
     /*float current_active_jiffies = LinuxParser::ActiveJiffies(pid_);   // ONLY NEED STATES PERTAINING TO CPU ITSELF (NOT GUEST)    Can NOT use "stol(jiffies[LinuxParser::ActiveJiffies()])" or program will NOT Run
     float current_idle_jiffies = LinuxParser::IdleJiffies();   // Can NOT use "stol(jiffies[LinuxParser::IdleJiffies()])" or program will NOT Run*/
     float current_active_jiffies = LinuxParser::kUser_ + LinuxParser::kNice_ + LinuxParser::kSystem_ + LinuxParser::kIRQ_ + LinuxParser::kSoftIRQ_;   // ONLY NEED STATES PERTAINING TO CPU ITSELF (NOT GUEST)    Can NOT use "stol(jiffies[LinuxParser::ActiveJiffies()])" or program will NOT Run
