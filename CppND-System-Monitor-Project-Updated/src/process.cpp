@@ -48,7 +48,7 @@ float Process::CpuUtilization()
     /*prev_total_jiffies = current_active_jiffies;   // ACCEPTABLE?    make Previous total, Current total    ONLY NEED STATES PERTAINING TO CPU ITSELF (NOT GUEST)
     prev_idle_jiffies = current_idle_jiffies;   // ACCEPTABLE?    make Previous idle, Current idle*/
     
-    return (total_jiffies - idle_jiffies) / total_jiffies;   // CALCULATE PERCENT WITH * 100 OR NOT?                 CPU utilization = Total time - Idle time      CPU utilization will be shown as PERCENTAGE
+    return (total_jiffies - idle_jiffies);   // CALCULATE PERCENT WITH * 100 OR NOT?      CPU utilization = Total time - Idle time      CPU utilization will be shown as PERCENTAGE      using " / total_jiffies" after "(total_jiffies - idle_jiffies)", result will be "-nan"
 }
 
 // TODO: Return the command that generated this process
