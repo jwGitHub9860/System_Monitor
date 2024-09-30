@@ -21,9 +21,9 @@ string Format::ElapsedTime(long seconds)    // calculates Uptime into { Hr:Min:S
     seconds %= 3600;
     int minutes = seconds / 60;
     seconds %= 60;
-    std::ostringstream stream;
-    stream << std::setw(2) << std::setfill('0') << hours << ":"
-            << std::setw(2) << std::setfill('0') << minutes << ":"
-            << std::setw(2) << std::setfill('0') << seconds;
+    ostringstream stream;
+    stream << setw(2) << setfill('0') << hours << ":"
+            << setw(2) << setfill('0') << minutes << ":"
+            << setw(2) << setfill('0') << seconds;
     return stream.str();
 }
