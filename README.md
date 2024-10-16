@@ -19,6 +19,7 @@ Dato, Nicolás Jorge. "Calculate the Total CPU Usage of a Process From /proc/pid
 desmith17. "CppND-System-Monitor/src/linux_parser.cpp at main · desmith17/CppND-System-Monitor." GitHub, github.com/desmith17/CppND-System-Monitor/blob/main/src/linux_parser.cpp. Accessed 23 Sept 2024.
 "Does procs_running include the process which issues requests?" Unix & Linux Stack Exchange, 1 Mar. 1962, unix.stackexchange.com/questions/326434/does-procs-running-include-the-process-which-issues-requests. Accessed 27 Sept. 2024.
 "Exploring the /proc Filesystem." Medium, 5 Sept. 2023, medium.com/@4990/exploring-the-proc-filesystem-789e78ce4fb0#:~:text=The%20%2Fproc%2FPID%2Fstatus,the%20process%20is%20also%20listed. Accessed 13 Oct. 2024.
+Flo. "Is System already composed of one other class, the Processor cpu?" Knowledge, Udacity, knowledge.udacity.com/questions/440026. Accessed 15 Oct 2024.
 "Get process age from command line." Unix & Linux Stack Exchange, 1 Feb. 1961, unix.stackexchange.com/questions/238641/get-process-age-from-command-line. Accessed 30 Sept 2024.
 "Getting process ram usage in megabytes." Stack Overflow, 1 Apr. 1962, stackoverflow.com/questions/41447685/getting-process-ram-usage-in-megabytes. Accessed 11 Sept. 2024.
 gokce. "jiffies functions." Knowledge, Udacity, knowledge.udacity.com/questions/943400. Accessed 11 Sept. 2024.
@@ -76,6 +77,7 @@ Ugonna O. "How to go about implementing the LinuxParser:: ActiveJiffies(int pid[
 "When was a process started." Unix & Linux Stack Exchange, 1 May 1958, unix.stackexchange.com/questions/62154/when-was-a-process-started. Accessed 29 Sept. 2024.
 "Why is std::less better than "<" for pointers?" Stack Overflow, 1 June 1962, stackoverflow.com/questions/42762633/why-is-stdless-better-than-for-pointers. Accessed 11 Sept 2024.
 WILSON PARDI JUNIOR. "User." Knowledge, Udacity, knowledge.udacity.com/questions/822177. Accessed 13 Oct. 2024.
+17cupsofcoffee. "Why am I getting an error for an unused variable?" The Rust Programming Language Forum, 13 June 2018, users.rust-lang.org/t/why-am-i-getting-an-error-for-an-unused-variable/18045. Accessed 15 Oct. 2024.
 "8.3. Steal Time Accounting." 8.3. Steal Time Accounting | Red Hat Product Documentation, docs.redhat.com/en/documentation/red_hat_enterprise_linux/7/html/virtualization_deployment_and_administration_guide/sect-kvm_guest_timing_management-steal_time_accounting. Accessed 2 Oct 2024.
 "/etc/passwd File." AIX Version 4 Files Reference, sites.ualberta.ca/dept/chemeng/AIX-43/share/man/info/C/a_doc_lib/files/aixfiles/passwd_etc.htm#:~:text=The%20fields%20are%20in%20the,by%20a%20%3A%20(colon). Accessed 22 Sept. 2024.
 "/proc/stat explained." Linux Howtos: System -> /proc/stat explained, www.linuxhowtos.org/System/procstat.htm. Accessed 19 Sept 2024.
